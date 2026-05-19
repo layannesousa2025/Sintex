@@ -9,7 +9,10 @@ export default function App() {
       <Menu />
       
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<LayoutMenu />}> 
+        <Route index element={<Home />} />
+        </Route>
+
         <Route path="/about" element={<About />} />
       </Routes>
     </>
