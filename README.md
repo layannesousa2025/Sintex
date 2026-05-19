@@ -23,7 +23,7 @@ Você precisa do Node.js para gerenciar os pacotes do projeto.
 ### Passo 2: Clonar o Repositório
 Abra o seu terminal (Prompt de Comando, PowerShell ou Terminal do VS Code) e clone o projeto:
 ```bash
-git clone [https://github.com/Daniel-Ferreira19/Sintex.git](https://github.com/Daniel-Ferreira19/Sintex.git)
+git clone (https://github.com/Daniel-Ferreira19/Sintex.git)
 ```
 ### Passo 3: Entrar na Pasta e Instalar as Dependências
 Como a pasta node_modules não é enviada para o GitHub por ser muito pesada, você deve rodar o comando abaixo para o npm baixar o React, Tailwind e todas as ferramentas do projeto automaticamente:
@@ -62,7 +62,13 @@ Antes de digitar qualquer linha de código, puxe o que seus colegas já terminar
 git checkout main
 
 # Baixe as novidades do GitHub
+git stash
 git pull origin main
+```
+
+Depois Pra enviar as atulizaões do VsCode direto pro repositorio basta dar um:
+```Bash
+git push origin main
 ```
 ## 🔨 B: Criando uma Filial (Branch) para a sua Tarefa
 NUNCA faça alterações direto na branch main. Sempre crie uma branch separada para trabalhar na sua bancada:
