@@ -10,7 +10,7 @@ O **Sintex** é uma plataforma moderna desenvolvida para conectar clientes e don
 - **Módulo do Cliente (`ClientView`):** Onde os usuários buscam restaurantes e deixam suas notas/avaliações.
 - **Módulo do Dono (`OwnerView`):** Um painel estratégico onde o empresário acompanha os gráficos de avaliação da empresa e gerencia o link público do seu negócio.
 
----
+
 
 ## 💻 1. Configuração do Ambiente do Zero (Onboarding)
 
