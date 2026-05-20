@@ -14,7 +14,7 @@ const Banner = () => {
       </div> 
 
       {/* Lado Direito: O Vídeo */}
-      <div className="banner-video-wrapper">
+      {/* <div className="banner-video-wrapper"> */}
         <video 
           src={videoComdas} 
           autoPlay 
@@ -24,7 +24,7 @@ const Banner = () => {
           className="food-animated-video"
         />
         <div className="video-shadow-glow"></div>
-      </div>
+      {/* </div> */}
     </div>
   );
 };
