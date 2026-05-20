@@ -7,8 +7,8 @@ import LayoutMenu from "./Pages/LayoutMenu/LayoutMenu";
 export default function App() {
   return (
     <>
-      <Menu />
       
+<Menu/>
       <Routes>
         <Route path="/" element={<LayoutMenu />}> 
         <Route index element={<Home />} />

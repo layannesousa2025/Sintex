@@ -1,8 +1,8 @@
 import MenuLink from "../MenuLink/MenuLink";
-
+import "./Menu.css"
 export default function Menu() {
 return ( 
-    <nav>
+    <nav className="Menu">
         <MenuLink to="/">
         Home
         </MenuLink>

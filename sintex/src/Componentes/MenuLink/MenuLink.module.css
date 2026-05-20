@@ -1,11 +1,13 @@
-/* Dentro de MenuLink.module.css */
+
 .active {
-    text-decoration: underline; /* Isso cria a linha embaixo */
-    color: black;
-    font-weight: bold; /* Opcional: deixa em negrito para destacar mais */
-}
-/* 
-.active:hover {
     text-decoration: none;
+    color: rgb(29, 25, 25);
+    font-weight: bold;  
+    
+   
+}
+
+.active:hover {
+    text-decoration:dotted;
     color: black;
-} */
+}
