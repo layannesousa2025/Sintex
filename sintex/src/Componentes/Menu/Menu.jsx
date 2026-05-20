@@ -1,15 +1,14 @@
 import MenuLink from "../MenuLink/MenuLink";
-import "./Menu.css"
-export default function Menu() {
-return ( 
-    <nav className="Menu">
-        <MenuLink to="/">
-        Home
-        </MenuLink>
+import "./Menu.css";
 
-        <MenuLink to="/about">
-        About
-        </MenuLink>
+export default function Menu() {
+  return (
+    <nav className="Menu">
+      <MenuLink to="/">Home</MenuLink>
+      <MenuLink to="/about">About</MenuLink>
+
     </nav>
-)
+
+    
+  );
 }
