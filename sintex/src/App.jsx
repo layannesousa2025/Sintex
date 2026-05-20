@@ -1,19 +1,22 @@
-import { Routes, Route } from "react-router-dom"; // ✨ Corrigido para react-router-dom
+import { Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home";
-import About from "./Pages/About/About"; // ✨ Adicionado o import que faltava!
+import About from "./Pages/About/About";
+import Admin from "./Pages/Admin/Admin";
+import Client from "./Pages/Client/Client";
 import Menu from "./Componentes/Menu/Menu";
 import LayoutMenu from "./Pages/LayoutMenu/LayoutMenu";
 
 export default function App() {
   return (
     <>
-      
-<Menu/>
+      <Menu />
       <Routes>
-        <Route path="/" element={<LayoutMenu />}> 
-        <Route index element={<Home />} />
+        <Route path="/" element={<LayoutMenu />}>
+          <Route index element={<Home />} />
+          <Route path="client" element={<Client />} />
         </Route>
 
+          <Route path="admin" element={<Admin />} />
         <Route path="/about" element={<About />} />
       </Routes>
     </>
