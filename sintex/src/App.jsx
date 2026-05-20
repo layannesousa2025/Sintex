@@ -12,8 +12,8 @@ export default function App() {
       <Menu />
       <Routes>
         <Route path="/" element={<LayoutMenu />}>
-          <Route index element={<Home />} />
           <Route path="client" element={<Client />} />
+          <Route index element={<Home />} />
         </Route>
 
           <Route path="admin" element={<Admin />} />
