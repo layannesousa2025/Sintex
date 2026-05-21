@@ -4,7 +4,7 @@ export default function LayoutMenu() {
     return (
         <>
        <Banner />
- 
+         
        <Outlet />
        </>
     )
