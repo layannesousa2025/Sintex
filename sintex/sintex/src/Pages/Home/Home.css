@@ -17,7 +17,7 @@
 
 .HomeHeader p {
   margin: 0;
-  color: #555;
+  color: var(--muted);
 }
 
 .RestaurantGrid {
@@ -26,16 +26,17 @@
 }
 
 .RestaurantCard {
-  border: 1px solid #ddd;
+  border: 1px solid var(--border);
   border-radius: 16px;
   padding: 20px;
-  background: #fff;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  background: var(--surface);
+  box-shadow: var(--shadow);
 }
 
 .RestaurantCard h2 {
   margin: 0 0 10px;
   font-size: 1.5rem;
+  color: var(--text);
 }
 
 .RestaurantMeta {
@@ -43,12 +44,12 @@
   flex-wrap: wrap;
   gap: 12px;
   margin-bottom: 16px;
-  color: #444;
+  color: var(--muted-strong);
 }
 
 .Rating {
   font-weight: 700;
-  color: #027a48;
+  color: var(--success);
 }
 
 .Tags {
@@ -57,40 +58,18 @@
   gap: 8px;
 }
 
-.Tag {
-  background: #f3f4f6;
-  color: #333;
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 0.85rem;
-}
-
-.Points {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 16px;
-  margin-bottom: 18px;
-}
-
-.PointsColumn {
-  background: #f9fafb;
+.RestaurantNotice {
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 14px;
+  margin-bottom: 18px;
+  color: var(--muted-strong);
 }
 
-.PointsColumn h3 {
-  margin-top: 0;
-  font-size: 1rem;
-}
-
-.PointsList {
-  margin: 10px 0 0;
-  padding-left: 18px;
-  color: #333;
-}
-
-.PointsList li {
-  margin-bottom: 8px;
+.RestaurantNotice p {
+  margin: 0;
+  font-size: 0.95rem;
 }
 
 .MenuList {
@@ -107,11 +86,47 @@
   gap: 12px;
   padding: 12px;
   border-radius: 12px;
-  background: #f7f7ff;
+  background: var(--card);
 }
 
 .MenuItem span:first-child {
   font-weight: 600;
+}
+
+.Tag {
+  background: var(--surface-soft);
+  color: var(--muted-strong);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.Points {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.PointsColumn {
+  background: var(--surface-soft);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.PointsColumn h3 {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+.PointsList {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.PointsList li {
+  margin-bottom: 8px;
 }
 
 @media (max-width: 720px) {

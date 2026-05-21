@@ -1,43 +1,22 @@
+import { useEffect, useState } from "react";
 import "./Home.css";
+import { getRestaurants } from "../../data/restaurants";
 
-const restaurants = [
-  {
-    name: "Almoço da Vila",
-    rating: "4.8",
-    type: "Brasileira · Delivery",
-    positives: [
-      "Entrega rápida",
-      "Porções bem servidas",
-      "Atendimento cordial",
-    ],
-    negatives: [
-      "Poucas opções vegetarianas", "Temperatura do prato varia"],
-    menu: [
-      { dish: "Filé à parmegiana", price: "R$ 42,90" },
-      { dish: "Parmegiana de frango", price: "R$ 38,50" },
-      { dish: "Lasanha de carne", price: "R$ 35,00" },
-    ],
-  },
-  {
-    name: "Sabor Sushi Bar",
-    rating: "4.6",
-    type: "Japonesa · Restaurante",
-    positives: [
-      "Peixe fresco",
-      "Ambiente calmo",
-      "Apresentação bonita",
-    ],
-    negatives: [
-      "Tempo de espera maior nos fins de semana", "Preços um pouco altos"],
-    menu: [
-      { dish: "Temaki Salmão", price: "R$ 28,90" },
-      { dish: "Combinado Especial", price: "R$ 89,90" },
-      { dish: "Uramaki Hot", price: "R$ 34,00" },
-    ],
-  },
-];
-
+// Página principal que mostra restaurantes e cardápio.
 export default function Home() {
+  // Armazena os restaurantes carregados do mock / futuro backend.
+  const [restaurants, setRestaurants] = useState([]);
+
+  useEffect(() => {
+    async function loadRestaurants() {
+      // Pega os restaurantes do arquivo de dados.
+      const data = await getRestaurants();
+      setRestaurants(data);
+    }
+
+    loadRestaurants();
+  }, []);
+
   return (
     <main className="Home">
       <section className="HomeHeader">
@@ -49,30 +28,15 @@ export default function Home() {
 
       <section className="RestaurantGrid">
         {restaurants.map((restaurant) => (
-          <article key={restaurant.name} className="RestaurantCard">
+          <article key={restaurant.id} className="RestaurantCard">
             <h2>{restaurant.name}</h2>
             <div className="RestaurantMeta">
               <span className="Rating">Avaliação: {restaurant.rating}</span>
               <span>{restaurant.type}</span>
             </div>
 
-            <div className="Points">
-              <div className="PointsColumn">
-                <h3>Pontos positivos</h3>
-                <ul className="PointsList">
-                  {restaurant.positives.map((item) => (
-                    <li key={item}>+ {item}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="PointsColumn">
-                <h3>Pontos negativos</h3>
-                <ul className="PointsList">
-                  {restaurant.negatives.map((item) => (
-                    <li key={item}>- {item}</li>
-                  ))}
-                </ul>
-              </div>
+            <div className="RestaurantNotice">
+              <p>Pontos positivos e negativos são visíveis apenas para o administrador.</p>
             </div>
 
             <div>
