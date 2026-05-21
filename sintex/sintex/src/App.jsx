@@ -7,11 +7,16 @@ import Menu from "./Componentes/Menu/Menu";
 import LayoutMenu from "./Pages/LayoutMenu/LayoutMenu";
 import PaginaDeErro from "./PaginaDeErro/paginaderro";
 import Footer from "./Componentes/Footer/Footer";
+import ScrollToTop from "./Pages/ScrollToTop/ScrollToTop";
+
 export default function App() {
   return (
     <>
       <Menu />
+      <ScrollToTop />
+
       <Routes>
+
         <Route path="/" element={<LayoutMenu />}>
           <Route path="client" element={<Client />} />
           <Route index element={<Home />} />
