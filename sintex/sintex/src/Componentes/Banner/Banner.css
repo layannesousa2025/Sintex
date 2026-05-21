@@ -3,10 +3,9 @@
     width: 100%;
     max-width: 2000px;
     min-height: 450px; /* Altura ideal para o banner */
-    margin: 30px auto;
+    margin:  0px auto;
     background-color: #0d0d0d; /* Fundo reserva caso o vídeo demore a carregar */
     border: 1px solid #2d1d13;
-    border-radius: 30px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
