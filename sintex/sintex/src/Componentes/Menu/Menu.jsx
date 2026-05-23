@@ -33,6 +33,7 @@ export default function Menu() {
         <MenuLink to="/about">About</MenuLink>
         <MenuLink to="/admin">Administrador</MenuLink>
         <MenuLink to="/client">Cliente</MenuLink>
+        <MenuLink to="/login">Login</MenuLink>
       </div>
 
       <form className="MenuSearch" onSubmit={handleSearch}>
