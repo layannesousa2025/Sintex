@@ -39,7 +39,7 @@ export default function Footer() {
             </div>
 
             <div className="footerBottom">
-                <p>© 2024 Sintex. Todos os direitos reservados.</p>
+                <p>© 2026 Sintex. Todos os direitos reservados.</p>
             </div>
         </footer>
     );
