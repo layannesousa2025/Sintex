@@ -12,6 +12,7 @@ export default function Menu() {
   const initialSearch = params.get("q") || "";
   const [searchTerm, setSearchTerm] = useState(initialSearch);
 
+
   const handleSearch = (event) => {
     event.preventDefault();
     const query = searchTerm.trim();
