@@ -9,6 +9,7 @@ import PaginaDeErro from "./PaginaDeErro/paginaderro";
 import Footer from "./Componentes/Footer/Footer";
 import ScrollToTop from "./Pages/ScrollToTop/ScrollToTop";
 import Login from "./Componentes/Login/Login";
+import ProtectedRoute from "./Componentes/ProtectedRoute/ProtectedRoute"; // 1. Importe o arquivo criado
 
 export default function App() {
   return (
@@ -17,18 +18,21 @@ export default function App() {
       <ScrollToTop />
 
       <Routes>
-
         <Route path="/" element={<LayoutMenu />}>
           <Route path="client" element={<Client />} />
           <Route index element={<Home />} />
         </Route>
 
-        <Route path="admin" element={<Admin />} />
+        {/* 2. Envolva a rota do Admin com o ProtectedRoute */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="admin" element={<Admin />} />
+        </Route>
+
         <Route path="about" element={<About />} />
         <Route path="*" element={<PaginaDeErro />} />
         <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
     </>
-  )
+  );
 }
