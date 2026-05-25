@@ -13,10 +13,17 @@ export default function Login() {
 
     // Validação simples (depois você pode conectar com uma API)
     if (email === "admin@sintex.com" && senha === "123456") {
-      alert("Login realizado com sucesso!");
+      
+      // SALVA A SESSÃO DO ADMIN NO NAVEGADOR
+      localStorage.setItem("userRole", "admin"); 
+      
       navigate("/admin"); // Redireciona para a página do Admin
     } else if (email && senha) {
       alert("Login como cliente!");
+      
+      // Se quiser salvar o cliente também (opcional)
+      localStorage.setItem("userRole", "client"); 
+      
       navigate("/client"); // Redireciona para a página do Cliente
     } else {
       alert("Por favor, preencha todos os campos.");
