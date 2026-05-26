@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom"; // 👇 IMPORTANTE: Importar o useNavigate
 import "./Admin.css";
-import { getRestaurants } from "../../data/restaurants";
+import { getRestaurants } from "../../data/imagens/restaurants";
 
 export default function Admin() {
   const [restaurantId, setRestaurantId] = useState("");

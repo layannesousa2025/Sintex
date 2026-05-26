@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import "./Home.css";
-import { getRestaurants } from "../../data/restaurants";
+import { getRestaurants } from "../../data/imagens/restaurants";
 
 // Página do cliente, mostra restaurantes e filtro de busca.
 export default function Home() {
@@ -52,6 +52,7 @@ export default function Home() {
                 <div>
                   <h2>{restaurant.name}</h2>
                   <p>{restaurant.type}</p>
+                  <img src={restaurant.ImageData} alt={restaurant.name} className="ClientImage" />
                 </div>
                 <button
                   type="button"
