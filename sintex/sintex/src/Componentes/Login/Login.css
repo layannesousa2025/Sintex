@@ -5,6 +5,7 @@
   min-height: 85vh; /* Ajusta para dar espaço ao menu superior se necessário */
   background-color: #0f0f0f ; /* Fundo escuro igual ao do projeto */
   padding: 20px;
+  cursor: pointer;
 }
 
 .LoginForm {
