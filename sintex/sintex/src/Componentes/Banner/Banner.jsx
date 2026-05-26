@@ -1,6 +1,6 @@
 import React from 'react';
 import './Banner.css'; 
-import videoComdas from '../../Componentes/Banner/Imagens/comidas.mp4';
+import videoComdas from './Imagens/comidasModificacao.mp4';
 
 const Banner = () => {
   return (
