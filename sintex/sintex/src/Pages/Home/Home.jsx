@@ -3,7 +3,6 @@ import { useSearchParams } from "react-router-dom";
 import "./Home.css";
 import { getRestaurants } from "../../data/imagens/restaurants";
 
-// Página do cliente, mostra restaurantes e filtro de busca.
 export default function Home() {
   const [searchParams] = useSearchParams();
   const query = searchParams.get("q") || "";
@@ -15,13 +14,11 @@ export default function Home() {
       const data = await getRestaurants();
       setRestaurants(data);
     }
-
     loadRestaurants();
   }, []);
 
   const filteredRestaurants = useMemo(() => {
     const lower = query.toLowerCase();
-    // Filtra restaurantes pelo nome, tipo ou descrição.
     return restaurants.filter((restaurant) =>
       restaurant.name.toLowerCase().includes(lower) ||
       restaurant.type.toLowerCase().includes(lower) ||
@@ -48,35 +45,37 @@ export default function Home() {
         ) : (
           filteredRestaurants.map((restaurant) => (
             <article key={restaurant.id} className="ClientCard">
-              <div className="ClientCardHeader">
-                <div>
-                  <h2>{restaurant.name}</h2>
-                  <p>{restaurant.type}</p>
-                  <img src={restaurant.ImageData} alt={restaurant.name} className="ClientImage" />
+              
+              {/* O Header agora carrega a imagem de fundo */}
+              <div className="ClientCardHeader"style={{ backgroundImage: `url(${restaurant.ImageData})` }}>
+                {/* Película escura para dar contraste no texto */}
+                <div className="HeaderOverlay"></div>
+                
+                {/* Conteúdo sobreposto à imagem */}
+                <div className="HeaderContent">
+                  <div className="HeaderInfo">
+                    <h2>{restaurant.name}</h2>
+                    <p>{restaurant.categoria || restaurant.type}</p>
+                  </div>
+                  <button
+                    className="ActionBtn"type="button"onClick={() =>setSelectedRestaurant(selectedRestaurant?.id === restaurant.id ? null : restaurant)}>
+                    {selectedRestaurant?.id === restaurant.id ? "Ocultar detalhes" : "Ver detalhes"}
+                  </button>
                 </div>
-                <button
-                  type="button"
-                  onClick={() =>
-                    setSelectedRestaurant(
-                      selectedRestaurant?.id === restaurant.id ? null : restaurant
-                    )
-                  }
-                >
-                  {selectedRestaurant?.id === restaurant.id ? "Ocultar detalhes" : "Ver detalhes"}
-                </button>
               </div>
 
+              {/* Detalhes do Cardápio (Abre em baixo da imagem) */}
               {selectedRestaurant?.id === restaurant.id && (
                 <div className="ClientDetails">
                   <p className="Description">{restaurant.description}</p>
                   <div className="ClientMeta">
-                    <span>Avaliação: {restaurant.rating}</span>
+                    <span>Avaliação: {restaurant.rating || "N/A"}</span>
                     <span>{restaurant.type}</span>
                   </div>
                   <div className="ClientMenu">
                     <h3>Cardápio</h3>
                     <ul>
-                      {restaurant.menu.map((item) => (
+                      {restaurant.menu?.map((item) => (
                         <li key={item.dish}>
                           <span>{item.dish}</span>
                           <span>{item.price}</span>
