@@ -1,11 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom"; // 👇 IMPORTANTE: Importar o useNavigate
 import "./Admin.css";
-import { getRestaurants } from "../../data/restaurants";
+import { getRestaurants } from "../../data/imagens/restaurants";
 
-// Página do administrador, mostra dados e feedback do restaurante selecionado.
 export default function Admin() {
   const [restaurantId, setRestaurantId] = useState("");
   const [restaurants, setRestaurants] = useState([]);
+  const navigate = useNavigate(); // 👇 Inicializa o redirecionamento
 
   useEffect(() => {
     async function loadRestaurants() {
@@ -19,6 +20,12 @@ export default function Admin() {
     loadRestaurants();
   }, [restaurantId]);
 
+  // 👇 FUNÇÃO DE LOGOUT: Limpa o acesso e joga pro login
+  const handleLogout = () => {
+    localStorage.removeItem("userRole"); 
+    navigate("/login", { replace: true });
+  };
+
   const selectedRestaurant = useMemo(
     () => restaurants.find((restaurant) => restaurant.id === restaurantId) || restaurants[0],
     [restaurantId, restaurants]
@@ -29,6 +36,11 @@ export default function Admin() {
       <section className="AdminHeader">
         <h1>Área do Administrador</h1>
         <p>Escolha o restaurante que representa o seu link e veja os feedbacks do seu público.</p>
+        
+        {/* 👇 BOTÃO DE LOGOUT ADICIONADO */}
+        <button onClick={handleLogout} className="LogoutButton" style={{ marginTop: '10px', padding: '8px 16px', cursor: 'pointer' }}>
+          Sair do Sistema
+        </button>
       </section>
 
       <article className="AdminCard">

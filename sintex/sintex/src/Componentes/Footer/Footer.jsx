@@ -15,7 +15,6 @@ export default function Footer() {
                     <ul>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/about">Sobre</Link></li>
-                        <li><Link to="/client">Cliente</Link></li>
                         <li><Link to="/admin">Admin</Link></li>
                     </ul>
                 </div>

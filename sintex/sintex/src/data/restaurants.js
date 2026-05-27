@@ -6,13 +6,15 @@
 
 
 // ─── RESTAURANTES ────────────────────────────────────────────
+
+
 export const restaurantes = [
   {
     id: 1,
     nome: "Fortunata",
     endereco: "SHIS QI 09, Bloco C,Loja 6 - Lago Sul, Brasília.",
     descricao: "Comida Italina de verdade, feita com amor.",
-    imagem_url: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80",
+    ImageData: "fortuna.png",
     categoria: "com inspiração francesa, italiana e com apelo afetivo.",
     criado_em: "2024-01-10T10:00:00Z",
   },
@@ -21,7 +23,7 @@ export const restaurantes = [
   nome: "Pizza Roma",
   endereco: "Av. Brasil, 456 - Jardim Europa",
   descricao: "As melhores pizzas artesanais da cidade.",
-  imagem_url: "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aW1hZ2VtJTIwZGUlMjBwaXp6YXxlbnwwfHwwfHx8MA%3D%3D",
+  ImageData: "pizza-roma.png",
   categoria: "Italiana",
   criado_em: "2024-01-12T10:00:00Z",
 },
@@ -31,7 +33,7 @@ export const restaurantes = [
     nome: "Burger Station",
     endereco: "Rua 7 de Setembro, 789 - Centro",
     descricao: "Hambúrgueres artesanais e batatas crocantes.",
-    imagem_url: "https://images.unsplash.com/photo-1550317138-10000687a72b?auto=format&fit=crop&w=800&q=80",
+    ImageData: "burger-station.png",
     categoria: "Americana",
     criado_em: "2024-01-15T10:00:00Z",
   },
@@ -41,7 +43,7 @@ export const restaurantes = [
     nome: "Maria Do Sertão",
     endereco: "R. do Forró, 120 - Setor Central, Brasília - DF",
     descricao: "Comida nordestina caseira: carne de sol, baião e tapioca.",
-    imagem_url: "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=800&q=80",
+    ImageData: "maria-do-sertao.png",
     categoria: "Nordestina",
     criado_em: "2024-03-05T11:20:00Z",
   },
@@ -51,7 +53,7 @@ export const restaurantes = [
     nome: "São Paulo 21",
     endereco: "Av. Paulista, 2100 - Bela Vista, São Paulo - SP",
     descricao: "Cozinha contemporânea com petiscos gourmet e drinks especiais.",
-    imagem_url: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=800&q=80",
+    ImageData: "sao-paulo-21.png",
     categoria: "Contemporânea",
     criado_em: "2024-04-18T19:45:00Z",
   },

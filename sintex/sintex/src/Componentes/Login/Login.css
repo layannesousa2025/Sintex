@@ -5,6 +5,7 @@
   min-height: 85vh; /* Ajusta para dar espaço ao menu superior se necessário */
   background-color: #0f0f0f ; /* Fundo escuro igual ao do projeto */
   padding: 20px;
+  cursor: pointer;
 }
 
 .LoginForm {
@@ -19,13 +20,14 @@
 
 .LoginLogoBox {
   display: flex;
-  justify-content: center;
+  justify-content: start;
+  align-items: center;
   margin-bottom: 20px;
+  gap: -160px;
 }
 
 .LoginLogo {
   height: 50px;
-  width: auto;
 }
 
 .LoginForm h2 {
@@ -83,23 +85,55 @@
 
 .LoginFooter {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   margin-top: 20px;
   font-size: 0.85rem;
+  color: #ffffff;
 }
-
-.LoginFooter a {
-  color: #8b949e;
-  text-decoration: none;
-}
+ 
 
 .LoginFooter a:hover {
-  color: #ffffff;
+  color: #ff7300;
 }
 
 .LoginFooter .HighlightLink {
   color: #ff7300;
   font-weight: bold;
+  background: none;
+ 
+}
+.BackLink{
+  color: #ffffff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border: 2px solid #ff7300;
+  background-color: #ff7300;
+  border-radius: 50%;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  
+}
+
+.BackLink:hover {
+  transform: translateX(-2px);
+  background-color: #F21F26;
+  border-color: #F21F26;
+}
+
+.BackLink img {
+  width: 18px;
+}
+
+.BackLinkBox{
+  display: flex;
+  justify-content:  start;
+  align-items: start;
+  gap: 90px;
+  margin-bottom: 14px;
 }

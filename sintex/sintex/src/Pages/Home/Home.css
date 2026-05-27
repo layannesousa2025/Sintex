@@ -1,78 +1,118 @@
-.Home {
+.ClientPage {
   padding: 24px;
-  display: grid;
-  gap: 24px;
+  min-height: calc(100vh - 80px);
+  background: var(--page-bg);
 }
 
-.HomeHeader {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.HomeHeader h1 {
-  margin: 0;
-  font-size: 2.25rem;
-}
-
-.HomeHeader p {
-  margin: 0;
-  color: var(--muted);
-}
-
-.RestaurantGrid {
-  display: grid;
-  gap: 20px;
-}
-
-.RestaurantCard {
+.ClientHeader {
+  max-width: 960px;
+  margin: 0 auto 24px;
+  padding: 28px 24px;
+  background: #F19601 ;
   border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 20px;
-  background: var(--surface);
+  border-radius: 22px;
   box-shadow: var(--shadow);
 }
 
-.RestaurantCard h2 {
+.ClientHeader h1 {
   margin: 0 0 10px;
-  font-size: 1.5rem;
   color: var(--text);
 }
 
-.RestaurantMeta {
+.ClientHeader p {
+  margin: 0;
+  color: white;
+}
+
+.ClientList {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+}
+
+.SearchInfo {
+  margin: 0;
+  color: var(--muted-strong);
+  font-weight: 600;
+}
+
+.EmptyState {
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 24px;
+  color: var(--muted);
+}
+
+.ClientCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  z-index: 0;
+}
+
+.ClientCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.ClientCardHeader h2 {
+  margin: 0;
+  color: var(--text);
+}
+
+.ClientCardHeader p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.ClientCardHeader button {
+  border: none;
+  background: var(--primary);
+  color: var(--primary-dark);
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.16s ease, background 0.16s ease;
+}
+
+.ClientCardHeader button:hover {
+  background: var(--success);
+  transform: translateY(-1px);
+}
+
+.ClientDetails {
+  padding-top: 12px;
+  border-top: 1px solid var(--border-soft);
+}
+
+.Description {
+  margin: 0 0 14px;
+  color: var(--muted-strong);
+  line-height: 1.7;
+}
+
+.ClientMeta {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-bottom: 16px;
-  color: var(--muted-strong);
-}
-
-.Rating {
-  font-weight: 700;
-  color: var(--success);
-}
-
-.Tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.RestaurantNotice {
-  background: var(--surface-soft);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 14px;
   margin-bottom: 18px;
-  color: var(--muted-strong);
+  color: var(--muted);
 }
 
-.RestaurantNotice p {
-  margin: 0;
-  font-size: 0.95rem;
+.ClientMenu h3 {
+  margin: 0 0 12px;
+  color: var(--text);
 }
 
-.MenuList {
+.ClientMenu ul {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -80,57 +120,26 @@
   gap: 12px;
 }
 
-.MenuItem {
+.ClientMenu li {
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  padding: 12px;
-  border-radius: 12px;
+  padding: 14px;
+  border-radius: 14px;
   background: var(--card);
 }
 
-.MenuItem span:first-child {
+.ClientMenu li span:first-child {
   font-weight: 600;
 }
 
-.Tag {
-  background: var(--surface-soft);
-  color: var(--muted-strong);
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 0.85rem;
-}
+@media (max-width: 760px) {
+  .ClientCardHeader {
+    flex-direction: column;
+    align-items: stretch;
+  }
 
-.Points {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 16px;
-  margin-bottom: 18px;
-}
-
-.PointsColumn {
-  background: var(--surface-soft);
-  border-radius: 12px;
-  padding: 14px;
-}
-
-.PointsColumn h3 {
-  margin-top: 0;
-  font-size: 1rem;
-}
-
-.PointsList {
-  margin: 10px 0 0;
-  padding-left: 18px;
-  color: var(--muted);
-}
-
-.PointsList li {
-  margin-bottom: 8px;
-}
-
-@media (max-width: 720px) {
-  .Points {
-    grid-template-columns: 1fr;
+  .ClientCardHeader button {
+    width: 100%;
   }
 }

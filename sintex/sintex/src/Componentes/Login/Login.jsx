@@ -1,23 +1,42 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import logo from "../../Componentes/Menu/imagens/logo.png";
+import seta from "../../Componentes/Login/imagens/seta.png";
 import "./Login.css";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+  const adminStored = typeof window !== "undefined" ? localStorage.getItem("adminAccount") : null;
+  const adminExists = !!adminStored;
 
   const handleLogin = (event) => {
     event.preventDefault();
 
     // Validação simples (depois você pode conectar com uma API)
-    if (email === "admin@sintex.com" && senha === "123456") {
-      alert("Login realizado com sucesso!");
-      navigate("/admin"); // Redireciona para a página do Admin
-    } else if (email && senha) {
+    const storedAdmin = adminStored ? JSON.parse(adminStored) : null;
+
+    if (storedAdmin && email === storedAdmin.email && senha === storedAdmin.password) {
+      localStorage.setItem("userRole", "admin");
+      const from = location.state && location.state.from ? location.state.from.pathname : "/admin";
+      navigate(from, { replace: true });
+      return;
+    }
+
+    // fallback: credenciais internas (só se nenhum admin cadastrado)
+    if (!storedAdmin && email === "admin@sintex.com" && senha === "123456") {
+      localStorage.setItem("userRole", "admin");
+      const from = location.state && location.state.from ? location.state.from.pathname : "/admin";
+      navigate(from, { replace: true });
+      return;
+    }
+
+    if (email && senha) {
       alert("Login como cliente!");
-      navigate("/client"); // Redireciona para a página do Cliente
+      localStorage.setItem("userRole", "client");
+      navigate("/client");
     } else {
       alert("Por favor, preencha todos os campos.");
     }
@@ -27,9 +46,14 @@ export default function Login() {
     <div className="LoginContainer">
       <form className="LoginForm" onSubmit={handleLogin}>
         <div className="LoginLogoBox">
-          <img src={logo} alt="Sintex Logo" className="LoginLogo" />
+          <div className="BackLinkBox">
+            <Link className="BackLink" to="/">
+              <img src={seta} alt="Voltar para Home" />
+            </Link>
+            <img src={logo} alt="Sintex Logo" className="LoginLogo" />
+          </div>
         </div>
-        
+
         <h2>Entrar no Sintex</h2>
 
         <div className="InputGroup">
@@ -57,10 +81,12 @@ export default function Login() {
         </div>
 
         <button type="submit" className="LoginButton">Acessar</button>
-        
+
         <div className="LoginFooter">
           <a href="#recuperar">Esqueceu a senha?</a>
-          <span>Não tem conta? <a href="#cadastro" className="HighlightLink">Cadastre-se</a></span>
+          <span> <a type="button" className="HighlightLink" onClick={() => navigate('/register-admin', { state: { from: location.state && location.state.from } })}>
+            Cadastre-se
+          </a></span>
         </div>
       </form>
     </div>
