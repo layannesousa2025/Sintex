@@ -1,3 +1,4 @@
+/* Mantive o início do seu CSS igual */
 .ClientPage {
   padding: 24px;
   min-height: calc(100vh - 80px);
@@ -8,7 +9,7 @@
   max-width: 960px;
   margin: 0 auto 24px;
   padding: 28px 24px;
-  background: #F19601 ;
+  background: #F19601;
   border: 1px solid var(--border);
   border-radius: 22px;
   box-shadow: var(--shadow);
@@ -45,52 +46,87 @@
   color: var(--muted);
 }
 
+/* --- NOVO VISUAL DOS CARTÕES --- */
+
 .ClientCard {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 22px;
-  padding: 24px;
+  /* overflow: hidden é crucial para a imagem não vazar das bordas arredondadas */
+  overflow: hidden; 
   box-shadow: var(--shadow);
   z-index: 0;
 }
 
+/* O Header agora é o banner com a imagem */
 .ClientCardHeader {
+  position: relative;
+  min-height: 140px; /* Altura do banner */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+/* O degradê escuro da esquerda para a direita para leitura do texto */
+.HeaderOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0.1) 100%);
+  z-index: 1;
+}
+
+/* O conteúdo por cima do overlay */
+.HeaderContent {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 18px;
+  width: 100%;
+  padding: 24px;
+  box-sizing: border-box;
 }
 
-.ClientCardHeader h2 {
+/* Textos sempre brancos por causa do fundo escuro da foto */
+.HeaderInfo h2 {
   margin: 0;
-  color: var(--text);
+  color: #ffffff; 
+  font-size: 1.6rem;
 }
 
-.ClientCardHeader p {
+.HeaderInfo p {
   margin: 6px 0 0;
-  color: var(--muted);
+  color: #e0e0e0;
+  font-size: 0.95rem;
 }
 
-.ClientCardHeader button {
+/* Botão Laranja igual ao do mockup */
+.ActionBtn {
   border: none;
-  background: var(--primary);
-  color: var(--primary-dark);
-  padding: 10px 18px;
+  background: #F19601;
+  color: #1a1a1a;
+  padding: 12px 24px;
   border-radius: 999px;
   font-weight: 700;
   cursor: pointer;
   transition: transform 0.16s ease, background 0.16s ease;
 }
 
-.ClientCardHeader button:hover {
-  background: var(--success);
-  transform: translateY(-1px);
+.ActionBtn:hover {
+  background: #d68500;
+  transform: translateY(-2px);
 }
 
+/* --- DETALHES E MENU --- */
+
 .ClientDetails {
-  padding-top: 12px;
-  border-top: 1px solid var(--border-soft);
+  padding: 24px;
+  background: var(--surface);
 }
 
 .Description {
@@ -126,20 +162,22 @@
   gap: 12px;
   padding: 14px;
   border-radius: 14px;
-  background: var(--card);
+  background: var(--surface-soft); /* Ajustado para dar leve contraste */
+  border: 1px solid var(--border-soft);
 }
 
 .ClientMenu li span:first-child {
   font-weight: 600;
 }
 
+/* Responsividade */
 @media (max-width: 760px) {
-  .ClientCardHeader {
+  .HeaderContent {
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
+    gap: 16px;
   }
-
-  .ClientCardHeader button {
+  .ActionBtn {
     width: 100%;
   }
 }
