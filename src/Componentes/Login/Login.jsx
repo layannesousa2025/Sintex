@@ -16,7 +16,7 @@ export default function Login() {
     event.preventDefault();
 
     try {
-      const resposta = await fetch("http://localhost/Sintex/backend/php/login.php", {
+      const resposta = await fetch("https://sintex-backend-xxx.up.railway.app/php/login.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password: senha }), 

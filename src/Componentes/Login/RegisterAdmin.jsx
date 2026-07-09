@@ -22,7 +22,7 @@ export default function RegisterAdmin() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost/Sintex/backend/php/register.php", {
+      const response = await fetch("https://sintex-backend-xxx.up.railway.app/php/register.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

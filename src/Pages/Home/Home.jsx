@@ -27,7 +27,7 @@ export default function Home() {
     async function loadRestaurants() {
       try {
         const response = await fetch(
-          "http://localhost/Sintex/backend/api/restaurants.php"
+          "https://sintex-backend-xxx.up.railway.app/api/restaurants.php"
         );
 
         if (response.ok) {
@@ -111,7 +111,7 @@ export default function Home() {
 
     try {
       const response = await fetch(
-        "http://localhost/Sintex/backend/api/feedbacks.php",
+        "https://sintex-backend-xxx.up.railway.app/api/feedbacks.php",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
